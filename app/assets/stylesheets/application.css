@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+body {
+  color: white;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+background-repeat: no-repeat;
+background-image: url('http://a57.foxnews.com/images.foxnews.com/content/fox-news/lifestyle/2018/03/08/corgi-got-fat-shamed-and-internet-could-not-handle-it/_jcr_content/par/featured_image/media-0.img.jpg/931/524/1520540975471.jpg?ve=1&tl=1&text=big-top-image;');
+
+
+}
+
+body a:visited {
+  color: white;
+}

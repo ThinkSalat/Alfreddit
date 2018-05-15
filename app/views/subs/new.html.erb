@@ -1,2 +1,13 @@
-<h1>Subs#new</h1>
-<p>Find me in app/views/subs/new.html.erb</p>
+<h1>Create your own Subalfred</h1>
+
+<form action="<%=subs_url%>" method="post">
+  <%= auth_token %>
+  Title
+  <input type="text" name="sub[title]" value="">
+  Description
+  <input type="text" name="sub[description]" value="">
+  
+  <!-- <input type="submit" name="" value="Add Sub to the land of Alfreddit"> -->
+  <%= button_to 'Add Sub to land of Alfreddit', subs_url, method: :post %>
+</form>
+

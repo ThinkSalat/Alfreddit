@@ -3,12 +3,22 @@
   <head>
     <title>Alfreddit</title>
     <%= csrf_meta_tags %>
-
+    
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    
+    <% if logged_in? %>
+    <h1 color='Green'><%= "Welcome, #{current_user.username}" %> </h1>
+    <%= button_to 'Leave Alfreddit Land', session_url, method: :delete %>
+    <% else %>
+      <%= link_to 'JOIN US! :^)', new_user_url %>
+      <br>
+      <%= link_to 'WELCOME BACK HEATHEN! :^(', new_session_url %>
+    <% end %>
+    
     <%= yield %>
   </body>
 </html>

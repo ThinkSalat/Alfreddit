@@ -1,2 +1,8 @@
-<h1>Subs#index</h1>
-<p>Find me in app/views/subs/index.html.erb</p>
+<h1>All Subalfreds</h1>
+
+<h2>  <%= link_to "New Subalfred", new_sub_url %></h2>
+
+<% @subs.each do |s| %>
+  <br>
+  <%= link_to s.title, sub_url(s) %>
+<% end %>

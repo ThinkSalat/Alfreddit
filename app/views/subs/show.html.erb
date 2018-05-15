@@ -1,2 +1,8 @@
-<h1>Subs#show</h1>
-<p>Find me in app/views/subs/show.html.erb</p>
+<h1> <%= @sub.title %> </h1>
+
+<br>
+
+<h3> <%= @sub.description %>  </h3>
+
+
+<h5>Moderated by <%= link_to @sub.moderator.username, user_url(@sub.moderator_id)%> </h5>
