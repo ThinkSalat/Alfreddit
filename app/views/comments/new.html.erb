@@ -1,0 +1,19 @@
+<h1>
+🗣Add your Comment
+</h1>
+
+<form class="" action="<%=comments_url%>" method="post">
+  <%= auth_token %>
+  <br>
+  
+  <% if params[:parent_comment_id] %>
+  <input type="hidden" name="comment[parent_comment_id]" value="<%=params[:parent_comment_id]%>">
+  <% end %>
+  
+  Type your comment here:
+  <input type="text" name="comment[content]" value="">
+  <br>
+  <input type="hidden" name="comment[author_id]" value="<%=@comment.author_id%>">
+  <input type="hidden" name="comment[post_id]" value="<%=@comment.post_id%>">
+  <input type="submit" name="" value="🗣 Let your voice ring out !">
+</form>

@@ -2,7 +2,28 @@
 
 <br>
 
+<%= link_to 'Post a Link', new_post_url(@sub)  %>
+
+<br>
+
 <h3> <%= @sub.description %>  </h3>
+
+<br>
+
+<h2>ALL THE POSTS 👺 </h2>
+
+<ul>
+<% @sub.posts.each do |post| %>
+<li>
+  <ul>
+    <li><%=link_to post.title, post_url(post)%></li>
+    <li><%=post.content%></li>
+    <li><%=button_to 'Remove Post', post_url(post), method: :delete%></li>
+  </ul>
+</li>
+<% end %>
+</ul>
+
 
 
 <h5>Moderated by <%= link_to @sub.moderator.username, user_url(@sub.moderator_id)%> </h5>

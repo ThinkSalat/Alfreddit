@@ -9,7 +9,7 @@
   </head>
 
   <body>
-    
+        
     <% if logged_in? %>
     <h1 color='Green'><%= "Welcome, #{current_user.username}" %> </h1>
     <%= button_to 'Leave Alfreddit Land', session_url, method: :delete %>
@@ -18,6 +18,8 @@
       <br>
       <%= link_to 'WELCOME BACK HEATHEN! :^(', new_session_url %>
     <% end %>
+    
+    <%= link_to 'ALL SUB-ALFREDS', subs_url %>
     
     <%= yield %>
   </body>

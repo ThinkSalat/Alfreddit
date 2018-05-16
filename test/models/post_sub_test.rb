@@ -1,19 +1,17 @@
 # == Schema Information
 #
-# Table name: posts
+# Table name: post_subs
 #
 #  id         :bigint(8)        not null, primary key
-#  title      :string           not null
-#  url        :string
-#  content    :string
-#  author_id  :integer          not null
+#  sub_id     :bigint(8)
+#  post_id    :bigint(8)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 require 'test_helper'
 
-class PostTest < ActiveSupport::TestCase
+class PostSubTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

@@ -10,21 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180515202257) do
+ActiveRecord::Schema.define(version: 20180515235554) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.string "content", null: false
+    t.integer "author_id", null: false
+    t.integer "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "parent_comment_id"
+    t.index ["author_id"], name: "index_comments_on_author_id"
+    t.index ["parent_comment_id"], name: "index_comments_on_parent_comment_id"
+    t.index ["post_id"], name: "index_comments_on_post_id"
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string "title", null: false
     t.string "url"
     t.string "content"
-    t.integer "sub_id", null: false
     t.integer "author_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_posts_on_author_id"
-    t.index ["sub_id"], name: "index_posts_on_sub_id"
+  end
+
+  create_table "posts_subs", force: :cascade do |t|
+    t.bigint "sub_id"
+    t.bigint "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_posts_subs_on_post_id"
+    t.index ["sub_id"], name: "index_posts_subs_on_sub_id"
   end
 
   create_table "subs", force: :cascade do |t|

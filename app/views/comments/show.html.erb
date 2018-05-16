@@ -1,0 +1,13 @@
+<br>
+<%= link_to "Parent Post", post_url(@comment.post)  %>
+<h3><%= @comment.content %></h3>
+<br>
+<%= link_to "Add Comment to this Comment", new_post_comment_url(@comment.post, parent_comment_id: @comment.id) %>
+<br>
+<br>
+Child Comments:
+<br>
+<br>
+<% @comment.child_comments.each do |child| %>
+<li><%=child.content%> </li>
+<% end %>

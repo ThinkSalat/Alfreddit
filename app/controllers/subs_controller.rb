@@ -1,5 +1,8 @@
 class SubsController < ApplicationController
+  
   before_action :require_moderator, only: [:edit,:update]
+  before_action :require_login!, only: [:new, :create]
+  
   def new
     @sub = Sub.new
   end
@@ -48,7 +51,9 @@ class SubsController < ApplicationController
   private
   
   def require_moderator
-    @sub.moderator_id == current_user.id
+    subsub =Sub.find(params[:id])
+
+    subsub.moderator_id == current_user.id
   end
   
   

@@ -1,2 +1,32 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<h1><%=link_to @post.title, @post.url%></h1> 
+
+<%= link_to 'Edit this Post', edit_post_url(@post) %>
+
+<br>
+<br>
+<h2>Content:</h2>
+<h3><%=@post.content%></h3>
+<br>
+<br>
+
+<h4>This Post is part of these Sub-Alfreds:</h4>
+<ul>
+<% @post.subs.each do |s| %>
+<li><%= link_to s.title, sub_url(s) %></li>
+<% end %>
+</ul>
+
+
+Comments
+
+<%= link_to '🗣LET YOUR VOICE BE HEARD', new_post_comment_url(@post) %>
+<br>
+<ul>
+<% @post.comments.each do |comment| %>
+<li>
+<%= link_to comment.content, comment_url(comment) %> 
+by 
+<%= link_to comment.author.username, user_url(comment.author) %>
+</li>
+<% end %>
+</ul>
