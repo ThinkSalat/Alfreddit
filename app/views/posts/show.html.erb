@@ -21,12 +21,18 @@ Comments
 
 <%= link_to '🗣LET YOUR VOICE BE HEARD', new_post_comment_url(@post) %>
 <br>
+
 <ul>
+  
 <% @post.comments.each do |comment| %>
+<% if comment.parent_comment_id.nil? %>
 <li>
+
 <%= link_to comment.content, comment_url(comment) %> 
 by 
 <%= link_to comment.author.username, user_url(comment.author) %>
 </li>
 <% end %>
+<% end %>
+
 </ul>

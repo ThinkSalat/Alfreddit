@@ -29,7 +29,8 @@ class Comment < ApplicationRecord
   belongs_to :parent_comment,
   foreign_key: :parent_comment_id,
   primary_key: :id,
-  class_name: :Comment
+  class_name: :Comment,
+  optional: true
   
   
   end
